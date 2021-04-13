@@ -1,4 +1,4 @@
-public class PageManager {
+/*public class PageManager {
 
     String page;
 
@@ -17,4 +17,4 @@ public class PageManager {
     public String getPage(){
         return this.page;
     }
-}
+}*/

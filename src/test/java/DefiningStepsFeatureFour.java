@@ -2,71 +2,55 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.assertEquals;
+
 public class DefiningStepsFeatureFour {
 
+    PageManager pageManager;
+    Application application;
+
     @Given("the applicant is on the {string} page")
-    public void the_applicant_is_on_the_page(String string) {
-        System.out.println();
+    public void the_applicant_is_on_the_page(String page) {
+        pageManager = new PageManager(page);
     }
 
     @Given("{int} sponsors have been selected")
-    public void sponsors_have_been_selected(Integer int1) {
-        System.out.println();
+    public void sponsors_have_been_selected(Integer numSponsors) {
+        application.setNumberOfSponsors(numSponsors);
+    }
 
+    @Given("{int} sponsor codes have been added")
+    public void the_sponsors_unique_codes_are_added(Integer numberSponsorCode) {
+        application.setNumberOfSponsorCodes(numberSponsorCode);
     }
 
     @When("the applicant clicks the submit button")
     public void the_applicant_clicks_the_submit_button() {
-        System.out.println();
-
-    }
-
-    @Then("the system does not add any sponsors to the application")
-    public void the_system_does_not_add_any_sponsors_to_the_application() {
-        System.out.println();
-
+        pageManager.onClickSubmitButton();
     }
 
     @Then("the applicant remains on the {string} page")
-    public void the_applicant_remains_on_the_page(String string) {
-        System.out.println();
-
+    public void the_applicant_remains_on_the_page(String page) {
+        assertEquals(pageManager.getPage(), page);
     }
 
     @Then("the error output should be {string}")
-    public void the_error_output_should_be(String string) {
-        System.out.println();
-
+    public void the_error_output_should_be(String error) {
+        assertEquals(pageManager.getError(), error);
     }
 
-    @Given("the sponsors unique codes are added")
-    public void the_sponsors_unique_codes_are_added() {
-        System.out.println();
-
-    }
-
-    @Then("the system adds the sponsors to the application")
-    public void the_system_adds_the_sponsors_to_the_application() {
-        System.out.println();
-
+    @Then("the system adds {int} sponsors to the application")
+    public void the_system_adds_the_sponsors_to_the_application(Integer addedSponsors) {
+        assertEquals(application.getNumberOfSponsors(), addedSponsors);
     }
 
     @Then("the applicant is redirect to the {string} page")
     public void the_applicant_is_redirect_to_the_page(String string) {
-        System.out.println();
-
+        assertEquals(pageManager.getPage(), error);
     }
 
     @Then("the successful output should be {string}")
-    public void the_successful_output_should_be(String string) {
-        System.out.println();
-
+    public void the_successful_output_should_be(String success) {
+        assertEquals(pageManager.getSuccess(), success);
     }
-
-    @Given("the sponsors unique code is added")
-    public void the_sponsors_unique_code_is_added() {
-        System.out.println();
-
-    }
-
 }

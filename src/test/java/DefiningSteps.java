@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 public class DefiningSteps {
 
     Applicant applicant;
-    PageManager pageManager;
+  //  PageManager pageManager;
 /*
     @Given("the applicant {string} is on the {string} page")
     public void the_applicant_is_on_the_application_page(String applicantId, String page) {

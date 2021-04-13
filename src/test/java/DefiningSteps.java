@@ -7,11 +7,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class DefiningSteps {
-    //should have separate method has and has not submitted?
 
     Applicant applicant;
     PageManager pageManager;
-
+/*
     @Given("the applicant {string} is on the {string} page")
     public void the_applicant_is_on_the_application_page(String applicantId, String page) {
         applicant = new Applicant(applicantId);
@@ -48,25 +47,25 @@ public class DefiningSteps {
         assertEquals(pageManager.getPage(), page);
     }
 
-    @Then("the successful output should be {string}")
-    public void the_successful_output_should_be(String output) {
-        assertEquals(applicant.getSuccessOutputMessage(), output);
-    }
-
     @Then("the error output should be {string}")
     public void the_error_output_should_be(String output) {
         assertEquals(applicant.getErrorOutputMessage(), output);
     }
 
+    @Then("the successful output should be {string}")
+    public void the_successful_output_should_be(String output) {
+        assertEquals(applicant.getSuccessOutputMessage(), output);
+    }
+
     @Then("the system should submit the application")
     public void the_system_should_submit_the_application() {
         assertTrue(applicant.hasSubmitted());
-        pageManager.setPage("submission details");
     }
 
     @Then("the application is redirect to the {string} page")
     public void the_application_is_redirect_to_the_page(String page) {
+        pageManager.setPage("submission details");
         assertEquals(pageManager.getPage(), page);
-    }
+    }*/
 
 }

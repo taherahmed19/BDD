@@ -6,13 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class DefiningStepsFeatureFour {
 
-    PageManager pageManager;
     Application application;
-
-    @Given("the applicant is on the {string} page")
-    public void the_applicant_is_on_the_page(String page) {
-        pageManager = new PageManager(page);
-    }
 
     @Given("{int} sponsors have been selected")
     public void sponsors_have_been_selected(Integer numSponsors) {
@@ -24,19 +18,25 @@ public class DefiningStepsFeatureFour {
         application.setNumberOfSponsorCodes(numberSponsorCode);
     }
 
+    @Given("the sponsor codes are valid")
+    public void the_sponsor_codes_are_valid() {
+        application.setSponsorCodeValid();
+    }
+
+    @Given("the sponsor codes are invalid")
+    public void the_sponsor_codes_are_invalid() {
+        application.setSponsorCodeInvalid();
+    }
+
+    @Given("the sponsors privilege is added")
+    public void the_sponsors_privilege_is_added() {
+        application.setSponsorPrivilege();
+    }
+
+
     @When("the applicant clicks the submit button")
     public void the_applicant_clicks_the_submit_button() {
         pageManager.onClickSubmitButton();
-    }
-
-    @Then("the applicant remains on the {string} page")
-    public void the_applicant_remains_on_the_page(String page) {
-        assertEquals(pageManager.getPage(), page);
-    }
-
-    @Then("the error output should be {string}")
-    public void the_error_output_should_be(String error) {
-        assertEquals(pageManager.getError(), error);
     }
 
     @Then("the system adds {int} sponsors to the application")
@@ -44,13 +44,9 @@ public class DefiningStepsFeatureFour {
         assertEquals(application.getNumberOfSponsors(), addedSponsors);
     }
 
-    @Then("the applicant is redirect to the {string} page")
-    public void the_applicant_is_redirect_to_the_page(String string) {
-        assertEquals(pageManager.getPage(), error);
+    @Then("the system outputs {string}")
+    public void the_successful_output_should_be(String success) {
+        assertEquals(pageManager.getOutput(), success);
     }
 
-    @Then("the successful output should be {string}")
-    public void the_successful_output_should_be(String success) {
-        assertEquals(pageManager.getSuccess(), success);
-    }
 }

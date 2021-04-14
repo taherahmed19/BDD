@@ -1,0 +1,12 @@
+1. INPUT personal details
+2. INPUT employer details
+3. IF employer exists THEN
+    3a. INPUT partial employer details
+    3b. INPUT selected employer
+4. ELSE SET employer details to employer list
+5. END IF
+6. IF submitted THEN
+    6a. Create Account
+    6b. Generate sponsor code
+    6c. PRINT sponsor code
+7. END IF

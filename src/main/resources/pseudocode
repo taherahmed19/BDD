@@ -1,13 +1,37 @@
-1. INPUT personal details (personalDetails)
-2. INPUT employer details (employerDetails)
-3. IF employerDetails exists THEN
-    3a. INPUT partial employer details
-    3b. INPUT selected employer
-4. ELSE SET employerDetails to employer list
-5. END IF
-6. Read submitted (submitted)
-7. IF submitted equals True  THEN
-    7a. Create Account
-    7b. Generate sponsor code
-    7c. PRINT sponsor code
-8. END IF
+1. INPUT sponsor firstName (sponsorFirstName)
+2. INPUT sponsor lastName (sponsorLastName)
+3. INPUT sponsor phone number (sponsorPhoneNumber)
+
+4. INPUT employer firstName (employerFirstName)
+5. INPUT employer lastName (employerLastName)
+6. INPUT employer phone number (employerPhoneNumber)
+
+7. IF sponsorFirstName length > 0 AND AND sponsorLastName length > 0
+     AND sponsorPhoneNumber length > 0 AND employerFirstName length > 0 AND employerLastName length > 0
+     AND employerPhoneNumber length > 0 THEN
+
+    7a. SET personalDetails = sponsorFirstName + sponsorLastName + sponsorOrganisation + sponsorPhoneNumber
+    7b. SET employerDetails = employerFirstName + employerLastName + employerOrganisation + employerPhoneNumber
+
+    7c. IF employerDetails exists THEN
+        7c1.INPUT partial details (partialDetails)
+        7c2.IF partialDetails equals employerFirstName OR partialDetails equals employerLastName
+              OR partialDetails equals employerPhoneNumber
+                7c2a.PRINT employer list
+                7c2b.INPUT employer from employer list
+                7c2c.PRINT 'Employer exists ' + unique sponsor code
+        7c3.ELSE
+            7c3a.PRINT 'Cannot find employer'
+        7c4.END IF
+
+    7d.ELSE
+        7d1.SET employerDetails to employer list
+        7d2.Create Account with personalDetails and employerDetails
+        7d3.Generate unique sponsor code
+        7d4.PRINT unique sponsor code
+    7e.END IF
+8. ELSE
+    8a.PRINT 'Invalid details'
+9.END IF
+
+

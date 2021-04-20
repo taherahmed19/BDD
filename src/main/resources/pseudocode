@@ -2,36 +2,48 @@
 2. INPUT sponsor lastName (sponsorLastName)
 3. INPUT sponsor phone number (sponsorPhoneNumber)
 
-4. INPUT employer firstName (employerFirstName)
-5. INPUT employer lastName (employerLastName)
-6. INPUT employer phone number (employerPhoneNumber)
+4. INPUT employer institution name (employerInstitutionName)
+5. INPUT employer phone number (employerPhoneNumber)
 
-7. IF sponsorFirstName length > 0 AND AND sponsorLastName length > 0
-     AND sponsorPhoneNumber length > 0 AND employerFirstName length > 0 AND employerLastName length > 0
-     AND employerPhoneNumber length > 0 THEN
+6. IF sponsorFirstName length > 0 AND sponsorLastName length > 0
+     AND sponsorPhoneNumber length > 0 AND sponsorPhoneNumber is valid AND employerInstitutionName length > 0
+     AND employerPhoneNumber length > 0 THEN AND employerPhoneNumber is valid
 
-    7a. SET personalDetails = sponsorFirstName + sponsorLastName + sponsorOrganisation + sponsorPhoneNumber
-    7b. SET employerDetails = employerFirstName + employerLastName + employerOrganisation + employerPhoneNumber
+    6a. SET personalDetails = sponsorFirstName + sponsorLastName + sponsorOrganisation + sponsorPhoneNumber
+    6b. SET employerDetails = employerFirstName + employerLastName + employerOrganisation + employerPhoneNumber
 
-    7c. IF employerDetails exists THEN
-        7c1.INPUT partial details (partialDetails)
-        7c2.IF partialDetails equals employerFirstName OR partialDetails equals employerLastName
-              OR partialDetails equals employerPhoneNumber
-                7c2a.PRINT employer list
-                7c2b.INPUT employer from employer list
-                7c2c.PRINT 'Employer exists ' + unique sponsor code
-        7c3.ELSE
-            7c3a.PRINT 'Cannot find employer'
-        7c4.END IF
+    6c. IF employerDetails exists THEN
+        6c1.INPUT partial details (partialDetails)
+        6c2.IF partialDetails equals employerInstitutionName OR partialDetails equals employerPhoneNumber
+                6c2a.PRINT employer list
+                6c2b.INPUT employer from employer list
+                6c2c.PRINT 'Employer exists ' + unique sponsor code
+        6c3.ELSE
+            6c3a.PRINT 'Cannot find employer'
+        6c4.END IF
 
-    7d.ELSE
-        7d1.SET employerDetails to employer list
-        7d2.Create Account with personalDetails and employerDetails
-        7d3.Generate unique sponsor code
-        7d4.PRINT unique sponsor code
-    7e.END IF
-8. ELSE
-    8a.PRINT 'Invalid details'
-9.END IF
+    6d.ELSE
+        6d1.SET employerDetails to employer list
+        6d2.Create Account with personalDetails and employerDetails
+        6d3.Generate unique sponsor code
+        6d4.PRINT unique sponsor code
+    6e.END IF
+7. ELSE
+    7a.PRINT 'Invalid details'
+8.END IF
+
+
+
+A Sponsor add their personal details: Sam Dart, 07999988888
+The Sponsor adds a new employer with the details: Dart Sam, 07888888999
+The Sponsor creates an account
+A unique sponsor code is generated
+An applicant adds the sponsor using their unique sponsor code
+An applicant selects Engineering from the subject list and selects academic and adds a predicted grade A* on 01/02/2020
+An applicant has an actual grade A and date 01/01/2020 to the subject Physics
+The applicant grants the sponsor the privilege to agree and replace the Physics grade
+The sponsor replaces the physics grade to A*
+The Sponsor adds a predicted grade of A and date 02/01/2020 to the subject Engineering
+Has the predicted grade A for subject Engineering should be removed leaving the highest scoring prediction A*?
 
 

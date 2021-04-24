@@ -1,3 +1,4 @@
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,14 +9,9 @@ public class DefiningStepsFeatureFour {
 
     Application application;
 
-    @Given("{int} sponsors have been selected")
-    public void sponsors_have_been_selected(Integer numSponsors) {
-        application.setNumberOfSponsors(numSponsors);
-    }
-
-    @Given("{int} sponsor codes have been added")
-    public void the_sponsors_unique_codes_are_added(Integer numberSponsorCode) {
-        application.setNumberOfSponsorCodes(numberSponsorCode);
+    @Given("{int} sponsor codes have been inputted")
+    public void sponsor_codes_have_been_inputted(Integer numberSponsorCodes) {
+        application.setNumberOfSponsorCodes(numberSponsorCodes);
     }
 
     @Given("the sponsor codes are valid")
@@ -33,20 +29,28 @@ public class DefiningStepsFeatureFour {
         application.setSponsorPrivilege();
     }
 
+    @Given("no sponsors privilege is added")
+    public void noSponsorsPrivilegeIsAdded() { application.setNoSponsorPrivilege(); }
 
     @When("the applicant clicks the submit button")
     public void the_applicant_clicks_the_submit_button() {
         pageManager.onClickSubmitButton();
     }
 
-    @Then("the system adds {int} sponsors to the application")
-    public void the_system_adds_the_sponsors_to_the_application(Integer addedSponsors) {
+    @Then("the system adds {int} sponsors to the applicant's application")
+    public void the_system_adds_the_sponsors_to_the_applicants_application(Integer addedSponsors) {
         assertEquals(application.getNumberOfSponsors(), addedSponsors);
     }
 
     @Then("the system outputs {string}")
-    public void the_successful_output_should_be(String success) {
-        assertEquals(pageManager.getOutput(), success);
+    public void the_system_outputs(String output) {
+        assertEquals(pageManager.getOutput(), output);
     }
 
 }
+
+
+
+
+
+

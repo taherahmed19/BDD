@@ -9,8 +9,8 @@
      AND sponsorPhoneNumber length > 0 AND sponsorPhoneNumber is valid AND employerInstitutionName length > 0
      AND employerPhoneNumber length > 0 AND employerPhoneNumber is valid THEN
 
-    6a. SET personalDetails = sponsorFirstName + sponsorLastName + sponsorOrganisation + sponsorPhoneNumber
-    6b. SET employerDetails = employerFirstName + employerLastName + employerOrganisation + employerPhoneNumber
+    6a. SET personalDetails = sponsorFirstName + sponsorLastName + sponsorPhoneNumber
+    6b. SET employerDetails = employerInstitutionName + employerPhoneNumber
 
     6c. IF employerDetails exists THEN
         6c1.INPUT partial details (partialDetails)
@@ -18,32 +18,32 @@
                 6c2a.PRINT employer list
                 6c2b.INPUT employer from employer list
                 6c2c.PRINT 'Employer exists ' + unique sponsor code
-        6c3.ELSE
-            6c3a.PRINT 'Cannot find employer'
+        6c3.ELSE PRINT 'Cannot find employer'
         6c4.END IF
 
     6d.ELSE
         6d1.SET employerDetails to employer list
-        6d2.Create Account with personalDetails and employerDetails
+        6d2.Create Account
         6d3.Generate unique sponsor code
         6d4.PRINT unique sponsor code
     6e.END IF
-7. ELSE
-    7a.PRINT 'Invalid details'
+7. ELSE PRINT 'Invalid details'
 8.END IF
 
 
 
-A Sponsor add their personal details: Sam Dart, 07999988888
-The Sponsor adds a new employer with the details: Dart Sam, 07888888999
-The Sponsor creates an account
-A unique sponsor code is generated
-An applicant adds the sponsor using their unique sponsor code
-An applicant selects Engineering from the subject list and selects academic and adds a predicted grade A* on 01/02/2020
-An applicant has an actual grade A and date 01/01/2020 to the subject Physics
-The applicant grants the sponsor the privilege to agree and replace the Physics grade
-The sponsor replaces the physics grade to A*
-The Sponsor adds a predicted grade of A and date 02/01/2020 to the subject Engineering
-Has the predicted grade A for subject Engineering should be removed leaving the highest scoring prediction A*?
+A sponsor adds their personal details: Sam Dart, 07999988888.
+The sponsor adds a new employer with the details: Manchester College, 07888888999.
+The sponsor creates an account.
+A unique sponsor code is generated.
+An applicant adds the sponsor to their application using the unique sponsor code.
+The applicant grants the sponsor the privilege to agree and replace all the applicant’s grades.
+An applicant has an actual academic grade A and date achieved 01/01/2020 for the subject Physics.
+The applicant selects Engineering from the subject list.
+The applicant selects academic grade and adds a predicted grade A with the
+date 01/01/2020 for the subject Engineering.
+The sponsor replaces the physics grade to A*.
+The sponsor adds a predicted grade of A* to the subject Engineering.
+
 
 

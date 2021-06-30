@@ -1,0 +1,90 @@
+# Register an account and signs out
+A user enters the registration screen
+The user enters their first name as Dan
+The user enters their last name as Bloggs
+The user enters their email as
+The user enters their password as password1
+The user enters their confirmation password as password1
+The user creates an account
+The user enters the main screen of the application
+The user clicks the sign out button
+
+# User logins in and creates a new post with camera
+A user enter the login screen
+The user enters their email address as DanBloggs@email.com
+The user enters their password as password1
+The user clicks the Form button
+The user enters the Form screen
+The user selects 'Graffiti' as the type
+The user enters the description of 'A graffiti issue at this location'
+The user selects a location
+The user takes an image using the device camera
+The user submits the Form
+
+# User logins in and creates a new post with gallery
+A user enter the login screen
+The user enters their email address as DanBloggs@email.com
+The user enters their password as password1
+The user clicks the Form button
+The user enters the Form screen
+The user selects 'Graffiti' as the type
+The user enters the description of 'A graffiti issue at this location'
+The user selects a location
+The user selects an image using the device gallery
+The user submits the Form
+
+
+# User logins in and creates a new post with gallery - delete
+A user enter the login screen
+The user enters their email address as DanBloggs@email.com
+The user enters their password as password1
+The user clicks the Form button
+The user enters the Form screen
+The user selects 'Graffiti' as the type
+The user enters the description of 'A graffiti issue at this location'
+The user selects a location
+The user selects an image using the device gallery
+The user submits the Form
+The user returns to the map and clicks on their marker
+The user clicks delete
+
+# User logins in and creates a new post with gallery - delete
+A user enter the login screen
+The user enters their email address as DanBloggs@email.com
+The user enters their password as password1
+The user opens another user's posts
+The user attempts to find the delete button to click
+
+
+# User logins in and creates notification area - in app
+A user enter the login screen
+The user enters their email address as DanBloggs@email.com
+The user enters their password as password1
+The user holds the map for 1 second
+The application generates a circle
+The user sets the radius to 500m
+The user enables in-app notifications
+The user receives a notification
+The user clicks the notification
+
+# User logins in and creates notification area - voice
+A user enter the login screen
+The user enters their email address as DanBloggs@email.com
+The user enters their password as password1
+The user holds the map for 1 second
+The application generates a circle
+The user sets the radius to 500m
+The user enables voice notifications
+The user receives a notification
+
+
+# User logins in and creates notification area - voice
+A user enter the login screen
+The user enters their email address as DanBloggs@email.com
+The user enters their password as password1
+The user holds the map for 1 second
+The application generates a circle
+The user sets the radius to 500m
+The user enables voice notifications
+The user clicks delete in the settings panel
+
